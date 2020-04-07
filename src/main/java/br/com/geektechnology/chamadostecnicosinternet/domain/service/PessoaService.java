@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.pessoa.Pessoa;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IPessoaRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.PessoaRepository;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeEmUsoException;
 import br.com.geektechnology.chamadostecnicosinternet.exception.PessoaNaoEncontradaException;
 
@@ -21,7 +21,7 @@ public class PessoaService {
 	= "Pessoa de código %d não pode ser removido, pois está em uso";
 
 	@Autowired
-	IPessoaRepository pessoaRepository;
+	PessoaRepository pessoaRepository;
 
 	@Autowired
 	EnderecoService enderecoService;

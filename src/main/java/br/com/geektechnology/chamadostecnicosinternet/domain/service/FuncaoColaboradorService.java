@@ -9,7 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.colaborador.FuncaoClass;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IFuncaoColaboradorRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.FuncaoColaboradorRepository;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeEmUsoException;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeNaoEncontradaException;
 
@@ -17,7 +17,7 @@ import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeNaoEncon
 public class FuncaoColaboradorService {
 
 	@Autowired
-	IFuncaoColaboradorRepository funcaoColaboradorRepository;
+	FuncaoColaboradorRepository funcaoColaboradorRepository;
 
 	public List<FuncaoClass> findAll() {
 		return funcaoColaboradorRepository.findAll();

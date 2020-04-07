@@ -5,17 +5,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.endereco.Endereco;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IBairroRepository;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IEnderecoRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.BairroRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.EnderecoRepository;
 
 @Service
 public class EnderecoService {
 
 	@Autowired
-	IEnderecoRepository enderecoRepository;
+	EnderecoRepository enderecoRepository;
 
 	@Autowired
-	IBairroRepository bairroRepository;
+	BairroRepository bairroRepository;
 
 	@Transactional
 	public Endereco save(Endereco endereco) {

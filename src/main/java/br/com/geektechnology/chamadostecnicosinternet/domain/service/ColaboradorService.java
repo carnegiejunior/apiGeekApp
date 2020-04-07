@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.colaborador.Colaborador;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IColaboradorRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.ColaboradorRepository;
 import br.com.geektechnology.chamadostecnicosinternet.exception.ColaboradorNaoEncontradaException;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeEmUsoException;
 
@@ -20,7 +20,7 @@ public class ColaboradorService {
 	private static final String MSG_COLABORADOR_EM_USO = "Colaborador de código %d não pode ser removido, pois está em uso";
 
 	@Autowired
-	IColaboradorRepository colaboradorRepository;
+	ColaboradorRepository colaboradorRepository;
 
 	@Autowired
 	PessoaService pessoaService;

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.endereco.Bairro;
 
-public interface IBairroRepository extends JpaRepository<Bairro, Long>{
+public interface BairroRepository extends JpaRepository<Bairro, Long>{
 
 }

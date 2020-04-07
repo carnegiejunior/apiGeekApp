@@ -9,7 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import br.com.geektechnology.chamadostecnicosinternet.domain.model.chamado.Chamado;
-import br.com.geektechnology.chamadostecnicosinternet.domain.repository.IChamadoRepository;
+import br.com.geektechnology.chamadostecnicosinternet.domain.repository.ChamadoRepository;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeEmUsoException;
 import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeNaoEncontradaException;
 
@@ -17,7 +17,7 @@ import br.com.geektechnology.chamadostecnicosinternet.exception.EntidadeNaoEncon
 public class ChamadoService {
 
 	@Autowired
-	private IChamadoRepository chamadoRepository;
+	private ChamadoRepository chamadoRepository;
 
 	public List<Chamado> findAll() {
 		return this.chamadoRepository.findAll();
