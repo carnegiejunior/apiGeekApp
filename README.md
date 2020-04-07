@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="www.geekinternet.com.br/img/logo.png" alt="geek" style="background-color: #188B43;"><br />
+  <img src="https://www.geekinternet.com.br/img/logo.png" alt="geek" /><br />
 </p>
 # apiGeekApp
 App for geek
