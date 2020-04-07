@@ -11,4 +11,5 @@ public class ColaboradorSpecs {
 	public static Specification<Colaborador> comNomeSemelhante(String nome) {
 		return (root, query, builder) -> builder.like(root.get("nome"), "%" + nome + "%");
 	}
+	
 }
