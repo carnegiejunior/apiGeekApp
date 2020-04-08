@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -26,6 +27,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
+import br.com.geektechnology.chamadostecnicosinternet.domain.model.cliente.Cliente;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -58,7 +60,7 @@ public class Chamado {
 	@JsonProperty("meio-solicitacao-id")
 	@JoinColumn(name = "meio_solicitacao_id", nullable = false)
 	@ManyToOne
-	private MeioSolicitacao meioSolicitacaoId;
+	private MeioSolicitacao meioSolicitacao;
 
 	@JsonProperty("relato-cliente")
 	@Column(name = "relato_cliente", nullable = false)
@@ -88,22 +90,11 @@ public class Chamado {
 	@Column(name = "identificador_protocolo", nullable = false, length = 14)
 	private String identificadorProtocolo;
 
-//	@JsonProperty("cliente_id")
-//	@JoinColumn(name = "cliente_id", nullable = false)
-//	@ManyToOne
-//	@NotNull
-//	private Pessoa cliente;
-
-	@JsonProperty("conta-cliente")
-	@Column(name = "conta_cliente", nullable = true)
-	private String contaCliente;
-
-//	@Basic
-//	@JsonProperty("endereco-cliente")
-//	@JoinColumn(name = "endereco_id")
-//	@ManyToOne
-//	@NotNull
-//	private Endereco enderecoCliente;
+	@JsonProperty("cliente_id")
+	@JoinColumn(name = "cliente_id", nullable = false)
+	@ManyToOne
+	@NotNull
+	private Cliente cliente;
 
 	@JsonProperty("descricao-problema-encontrado")
 	@Column(name = "descricao_problema_encontrado", nullable = true)
@@ -116,14 +107,14 @@ public class Chamado {
 	@JsonIgnore
 	@CreationTimestamp
 	@Column(name = "data_hora_abertura_chamado", columnDefinition = "datetime", nullable = false)
-	private LocalDateTime dataHoraAberturaChamado;
+	private LocalDateTime dataHoraAbertura;
 
 	@JsonProperty(value = "data-hora-fechamento-chamado")
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@Column(name = "data_hora_fechamento_chamado", nullable = true)
-	private LocalDateTime dataHoraFechamentoChamado;
+	private LocalDateTime dataHoraFechamento;
 
 	@PrePersist
 	private void prePersistMethod() {

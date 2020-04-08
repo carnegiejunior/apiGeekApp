@@ -34,15 +34,15 @@ public class Cliente {
 	@OneToOne
 	@JsonProperty("contratante-id")
 	@JoinColumn(name = "contratante_id", nullable = false)
-	private final Pessoa pessoa;
+	private  Pessoa pessoa;
 
 	@NotBlank
 	@JsonProperty("numero-contrato")
 	@Column(name = "numero_contrato", nullable = false, length = 20)
-	private final String numeroContrato;
+	private String numeroContrato;
 
 	@NotBlank
 	@JsonProperty("nas-server")
 	@Column(name = "nas_server", nullable = false, length = 50)
-	private final String nasServer;
+	private String nasServer;
 }

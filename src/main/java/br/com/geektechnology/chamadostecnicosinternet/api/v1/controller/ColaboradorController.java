@@ -34,6 +34,20 @@ public class ColaboradorController {
 	public List<Colaborador> findAll() {
 		return this.colaboradorService.findAll();
 	}
+	
+	@GetMapping("/nome-semelhante/{nome}")
+	public List<Colaborador> colaboradorComNomeSemelhante(@PathVariable String nome){
+		return colaboradorService.findComNomeSemelhante(nome);
+	}
+	
+	@GetMapping("/first")
+	public ResponseEntity<Colaborador>  first(){
+		Optional<Colaborador> colaborador = colaboradorService.findFirst();
+		if (colaborador.isPresent()) {
+			return ResponseEntity.ok(colaborador.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
 
 	@GetMapping("/{colaboradorId}")
 	public ResponseEntity<Colaborador> findById(@PathVariable Long colaboradorId) {

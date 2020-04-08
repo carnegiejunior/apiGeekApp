@@ -36,6 +36,6 @@ public class Colaborador {
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	private FuncaoClass funcao;
+	private Funcao funcao;
 
 }

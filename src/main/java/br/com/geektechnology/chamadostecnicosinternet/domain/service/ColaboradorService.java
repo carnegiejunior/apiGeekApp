@@ -25,25 +25,21 @@ public class ColaboradorService {
 	@Autowired
 	PessoaService pessoaService;
 
-	@Autowired
-	FuncaoColaboradorService funcaoColaboradorService;
 
 	public List<Colaborador> findAll() {
 		return this.colaboradorRepository.findAll();
+	}
+	
+	public Optional<Colaborador> findFirst() {
+		return this.colaboradorRepository.buscarPrimeiro();
 	}
 
 	@Transactional
 	public Colaborador save(Colaborador colaborador) {
 		mergePessoaColaborador(colaborador);
-		mergeFuncaoColaborador(colaborador);
 		return this.colaboradorRepository.save(colaborador);
 	}
 
-	private void mergeFuncaoColaborador(Colaborador colaborador) {
-		Optional.ofNullable(colaborador.getFuncao().getId())
-			.ifPresent( (funcaoId) -> this.funcaoColaboradorService.findById(funcaoId).ifPresent(	(funcao) -> colaborador.setFuncao(funcao)));
-		 this.funcaoColaboradorService.save(colaborador.getFuncao());
-	}
 
 	private void mergePessoaColaborador(Colaborador colaborador) {
 		Optional.ofNullable(colaborador.getPessoa().getId())
@@ -70,6 +66,10 @@ public class ColaboradorService {
 				this.colaboradorRepository.findById(colaboradorId).orElseThrow(
 						() -> new ColaboradorNaoEncontradaException(colaboradorId)
 						));
+	}
+
+	public List<Colaborador> findComNomeSemelhante(String nome) {
+		return this.colaboradorRepository.findComNomeSemelhante(nome);
 	}
 
 }
